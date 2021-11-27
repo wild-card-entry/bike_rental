@@ -51,8 +51,11 @@
     <input type="hidden" th:value="${pickupLocation.id}" name="pickupLocation">
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<br>
+<hr>
+<br>
 <!--<h4 class="display-4"> Don't know list of locations <button class="btn btn-success"><a href="/location" class="text-white ">See the list here </a> </button></h4>-->
-<h4 class="display-4"> Don't know list of locations</h4>
+<h4 > Don't know list of locations</h4>
 <table class="table" th:if="${session.user}">
     <thead>
     <tr>
