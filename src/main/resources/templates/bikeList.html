@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Bikes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<body class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><pre>     </pre></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/dashboard"> Dashboard </a>
+            </li>
+            <pre>   </pre>
+            <li class="nav-item">
+                <a class="nav-link" href="/"> Home </a>
+            </li>
+            <pre>   </pre>
+            <li class="nav-item">
+                <a class="nav-link" href="/location"> List of Locations </a>
+            </li>
+            <pre>   </pre>
+            <li class="nav-item">
+                <a class="nav-link " href="/logout"> Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<h1 class="display-4">List of bikes in <span th:text="${location}"> </span> </h1>
+<hr>
+<table class="table" th:if="${session.user}">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Model</th>
+        <th scope="col">Colour</th>
+        <th scope="col">Availibility</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="bike:${bikes}">
+        <td th:text="${bike.id}"> </td>
+        <td th:text="${bike.model}"> </td>
+        <td th:text="${bike.color}"> </td>
+        <td>
+            <button type="button" class="btn btn-success" th:if="${bike.available == true}"><a  th:href="@{/location/listOfBikes/{locationId}/{bikeId}(locationId=${bike.currentLocation.Id},bikeId=${bike.Id})}" class="text-white "> Book </a></button>
+            <button type="button" class="btn btn-success" th:unless="${bike.available == true}"><a  th:href="@{/return/{bikeId}(bikeId=${bike.Id})}" class="text-white "> Return</a></button>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+
+<!--<table>-->
+<!--    <thead>-->
+<!--    <th> Id</th>-->
+<!--    <th> Model </th>-->
+<!--    <th> Colour</th>-->
+<!--    <th> Book </th>-->
+
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="bike:${bikes}">-->
+<!--        <td th:text="${bike.id}"> </td>-->
+<!--        <td th:text="${bike.model}"> </td>-->
+<!--        <td th:text="${bike.color}"> </td>-->
+<!--         <td>-->
+<!--             <a th:if="${bike.available == true}" th:href="@{/location/listOfBikes/{locationId}/{bikeId}(locationId=${bike.currentLocation.Id},bikeId=${bike.Id})}"> Book </a>-->
+<!--             <a th:unless="${bike.available == true}" th:href="@{/return/{bikeId}(bikeId=${bike.Id})}"> Return</a>-->
+<!--         </td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+</body>
+</html>

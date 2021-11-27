@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Data</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</head>
+<body class="container">
+<pre>           <h1 class="display-4" >Admin data handling </h1> </pre>
+<h2 class="text-primary"> Add a new location </h2>
+<form action="/addNewLocation" method = "POST">
+    <div class="form-group">
+        <label for="locationName">Address of location</label>
+        <input type="text" class="form-control" id="locationName" name="locationName" aria-describedby="emailHelp" placeholder="Enter location address">
+
+    </div>
+    <div class="form-group">
+        <label for="locationPhone">Phone of location</label>
+        <input type="text" class="form-control" id="locationPhone" name="locationPhone" aria-describedby="emailHelp" placeholder="Enter phone number of address">
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<br>
+<hr>
+<br>
+<h2 class="text-primary">Add a new bike </h2>
+<form action="/addNewBikes" method = "POST">
+    <div class="form-group">
+        <label for="bikeName">Enter the bike name:</label>
+        <input type="text" class="form-control" id="bikeName" name="bikeName" aria-describedby="emailHelp" placeholder="Enter model of bike">
+
+    </div>
+    <div class="form-group">
+        <label for="bikeColor">Enter the bike colour:</label>
+        <input type="text" class="form-control" id="bikeColor" name="bikeColor" aria-describedby="emailHelp" placeholder="Enter colour of bike">
+
+    </div>
+    <div class="form-group">
+        <label for="currentLocation">Bike current location:</label>
+        <input type="text" class="form-control" id="currentLocation" name="currentLocation" aria-describedby="emailHelp" placeholder="Enter the current location of bike">
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<!--<form action="/addNewLocation" method = "POST">-->
+<!--    Enter the bike name:  <input type="text"  name="bikeName">-->
+<!--    Enter the bike color: <input type="text" name="bikeColor">-->
+<!--    Enter the current location of bike: <input type="text" name="currentLocationId">-->
+<!--    <input type="submit" value="Add a new Bike">-->
+
+<!--</form>-->
+<!--<h1> Add a new location </h1>-->
+<!--<form action="/addNewLocation" method = "POST">-->
+
+<!--&lt;!&ndash;    Enter the locationID: <input type="text" name="location" id="location">&ndash;&gt;-->
+<!--    Enter the location : <input type="text" name="locationName">-->
+<!--    <input type="submit">-->
+<!--</form>-->
+
+
+
+
+
+<!--Input bike and location data in database-->
+
+
+
+</body>
+</html>
