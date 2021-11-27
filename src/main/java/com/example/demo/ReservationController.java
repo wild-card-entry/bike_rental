@@ -24,6 +24,8 @@ public class ReservationController {
 //        if(session.getAttribute("user") == null) {
 //            return "redirect:/login";
 //        }
+        Iterable<Location> allLocation = locationRepository.findAll();
+        model.addAttribute("allLocation", allLocation);
         model.addAttribute("bike", bike);
         model.addAttribute("pickupLocation", pickupLocation);
 
